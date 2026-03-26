@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Mail, ChevronDown, Download } from "lucide-react";
 import { GithubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 
@@ -31,16 +31,37 @@ const socials = [
 ];
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
+  const [roleIndex, setRoleIndex]       = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
   const reduce = useReducedMotion();
 
   useEffect(() => {
-    if (reduce) return;
-    const id = setInterval(() => {
-      setRoleIndex((i) => (i + 1) % ROLES.length);
-    }, 2800);
-    return () => clearInterval(id);
-  }, [reduce]);
+    // Reduced-motion: just show the full string, no animation
+    if (reduce) {
+      setDisplayedText(ROLES[roleIndex]);
+      return;
+    }
+
+    const target = ROLES[roleIndex];
+    let charIndex = 0;
+    setDisplayedText("");
+
+    // Type out one character at a time
+    const typeTimer = setInterval(() => {
+      charIndex++;
+      setDisplayedText(target.slice(0, charIndex));
+      if (charIndex >= target.length) {
+        clearInterval(typeTimer);
+        // Pause at the end, then advance to next role
+        const pauseTimer = setTimeout(() => {
+          setRoleIndex((i) => (i + 1) % ROLES.length);
+        }, 1800);
+        return () => clearTimeout(pauseTimer);
+      }
+    }, 65);
+
+    return () => clearInterval(typeTimer);
+  }, [roleIndex, reduce]);
 
   const handleScroll = (href: string) => {
     const el = document.querySelector(href);
@@ -89,18 +110,7 @@ export default function Hero() {
           className="h-8 flex items-center justify-center mb-8"
         >
           <span className="text-[#6B7280] font-mono text-base mr-2">~/</span>
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={roleIndex}
-              initial={reduce ? {} : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? {} : { opacity: 0, y: -8 }}
-              transition={{ duration: 0.3 }}
-              className="font-mono text-base text-[#F0F0F0]"
-            >
-              {ROLES[roleIndex]}
-            </motion.span>
-          </AnimatePresence>
+          <span className="font-mono text-base text-[#F0F0F0]">{displayedText}</span>
           <span className="ml-0.5 w-0.5 h-5 bg-[#00FFB2] animate-pulse" />
         </motion.div>
 
