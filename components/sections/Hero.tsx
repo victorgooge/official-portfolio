@@ -71,7 +71,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center bg-grid overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-grid overflow-hidden pt-16"
     >
       {/* Radial glow */}
       <div
@@ -79,7 +79,7 @@ export default function Hero() {
         className="hero-glow pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
       />
 
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto pb-20">
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto pb-32">
         {/* Status badge */}
         <motion.div
           initial={reduce ? {} : { opacity: 0, y: -10 }}
