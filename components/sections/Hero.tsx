@@ -180,7 +180,7 @@ export default function Hero() {
         initial={reduce ? {} : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[#6B7280] hover:text-[#00FFB2] transition-colors group"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 text-[#6B7280] hover:text-[#00FFB2] transition-colors group"
       >
         <span className="text-xs font-mono">scroll</span>
         <ChevronDown size={18} className="animate-bounce group-hover:text-[#00FFB2]" />
