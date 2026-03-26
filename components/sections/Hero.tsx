@@ -20,7 +20,7 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/victorgooge",
+    href: "https://www.linkedin.com/in/victor-googe-151037268",
     renderIcon: () => <LinkedInIcon width={13} height={13} />,
   },
   {

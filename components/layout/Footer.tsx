@@ -22,7 +22,7 @@ export default function Footer() {
             <GithubIcon width={17} height={17} />
           </a>
           <a
-            href="https://linkedin.com/in/victorgooge"
+            href="https://www.linkedin.com/in/victor-googe-151037268"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

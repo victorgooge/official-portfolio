@@ -56,7 +56,7 @@ function processCommand(raw: string): OutputLine[] {
       return [
         { type: "output", text: `Email:    ${EMAIL}` },
         { type: "output", text: "GitHub:   github.com/victorgooge" },
-        { type: "output", text: "LinkedIn: linkedin.com/in/victorgooge" },
+        { type: "output", text: "LinkedIn: linkedin.com/in/victor-googe-151037268" },
       ];
     case "hire":
       return [
