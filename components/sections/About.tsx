@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import FadeUp from "@/components/animations/FadeUp";
+import FadeUp        from "@/components/animations/FadeUp";
+import PhotoLightbox from "@/components/ui/PhotoLightbox";
 import { MapPin, Briefcase, BookOpen, Zap } from "lucide-react";
 
 const TERMINAL_LINES = [
@@ -40,16 +40,7 @@ export default function About() {
 
             {/* Headshot */}
             <FadeUp delay={0.08}>
-              <div className="mb-6 w-24 h-24 rounded-full overflow-hidden border-2 border-[#00FFB2]/30">
-                <Image
-                  src="/headshot.png"
-                  alt="Victor Googe"
-                  width={96}
-                  height={96}
-                  className="object-cover w-full h-full"
-                  priority
-                />
-              </div>
+              <PhotoLightbox src="/headshot.png" alt="Victor Googe" thumbSize={96} />
             </FadeUp>
 
             <FadeUp delay={0.1}>

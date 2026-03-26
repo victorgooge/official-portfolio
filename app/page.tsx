@@ -9,6 +9,7 @@ import Contact      from "@/components/sections/Contact";
 import TerminalEgg       from "@/components/ui/TerminalEgg";
 import CustomCursor      from "@/components/ui/CustomCursor";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
+import ScrollToTop       from "@/components/ui/ScrollToTop";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       </main>
       <Footer />
       <TerminalEgg />
+      <ScrollToTop />
     </>
   );
 }
