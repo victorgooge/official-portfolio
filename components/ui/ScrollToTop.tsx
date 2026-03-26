@@ -29,7 +29,7 @@ export default function ScrollToTop() {
           transition={{ type: "spring", stiffness: 300, damping: 24 }}
           whileHover={reduce ? {} : { scale: 1.1, y: -2 }}
           whileTap={reduce ? {} : { scale: 0.92 }}
-          className="fixed bottom-8 right-6 z-[150] p-3 rounded-full border border-[#00FFB2]/30 bg-[#0A0A0F]/90 text-[#00FFB2] backdrop-blur-sm hover:border-[#00FFB2]/70 hover:bg-[#00FFB2]/10 hover:shadow-[0_0_20px_rgba(0,255,178,0.2)] transition-colors"
+          className="fixed bottom-[72px] right-6 z-[150] p-3 rounded-full border border-[#00FFB2]/30 bg-[#0A0A0F]/90 text-[#00FFB2] backdrop-blur-sm hover:border-[#00FFB2]/70 hover:bg-[#00FFB2]/10 hover:shadow-[0_0_20px_rgba(0,255,178,0.2)] transition-colors"
         >
           <ArrowUp size={17} />
         </motion.button>
