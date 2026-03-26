@@ -1,4 +1,4 @@
-export type ProjectCategory = "Web" | "Systems" | "Tools" | "Other";
+export type ProjectCategory = "Web" | "Systems" | "Tools" | "ML";
 
 export interface Project {
   slug: string;
@@ -16,29 +16,39 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "process-scheduler",
-    title: "Process Scheduler Simulator",
+    slug: "polycapital",
+    title: "PolyCapital",
     description:
-      "A simulation of core CPU scheduling algorithms — FCFS, SJF, Round Robin, and Priority — with real-time Gantt chart visualization.",
+      "A cross-platform fintech app with a secure backend API, JWT auth, and real-time data — available on both web and mobile.",
     longDescription:
-      "Built in C, this simulator implements the four foundational CPU scheduling algorithms studied in Operating Systems courses. It parses process definitions from input files, runs each algorithm, and outputs a Gantt chart alongside computed metrics: average waiting time, turnaround time, and CPU utilization. Designed to deepen understanding of OS internals and scheduling trade-offs.",
-    tech: ["C", "POSIX", "Make"],
-    category: "Systems",
+      "Co-founded and architected a full-stack fintech application covering system design, infrastructure planning, and security strategy. Built a secure backend API with modular controllers, middleware, and JWT + bcrypt authentication. Deployed cloud-based clusters on MongoDB Atlas for scalable storage, then launched both a React web app and a React Native mobile app connected to the same API. Ported the web UI to React Native to achieve design parity and improve mobile accessibility.",
+    tech: ["React", "React Native", "JavaScript", "Node.js", "Express.js", "MongoDB", "JWT", "bcrypt"],
+    category: "Web",
     featured: true,
-    github: "https://github.com/victorgooge/process-scheduler",
+    status: "in-progress",
+  },
+  {
+    slug: "pc-build-optimizer",
+    title: "PC Build Optimizer",
+    description:
+      "An ML tool that recommends optimized PC builds within a user's budget using RandomForest models trained on hardware benchmark data.",
+    longDescription:
+      "Collaborated with teammates to build a machine learning tool that recommends optimized PC component combinations within any user-defined budget. Handled data collection and preparation — gathering hardware benchmark datasets, cleaning them, and engineering features for ML pipelines. Contributed to model validation to ensure predictions were accurate and feasible. Built with RandomForest, feature scaling, and a Streamlit UI for interactive querying.",
+    tech: ["Python", "pandas", "NumPy", "Scikit-Learn", "Streamlit"],
+    category: "ML",
+    featured: true,
     status: "complete",
   },
   {
-    slug: "student-score-tracker",
-    title: "Student Score Tracker",
+    slug: "marketplace-web-app",
+    title: "Marketplace Web App",
     description:
-      "A CLI tool for managing and analyzing student scores, supporting grade computation, GPA tracking, and CSV export.",
+      "A full-stack Django marketplace with user accounts, post management, email verification, and complete CRUD workflows.",
     longDescription:
-      "Developed in C++, this tool reads student records from structured input, computes weighted grades per assignment category, calculates GPA, and exports reports as CSV files. Features a clean terminal UI with color-coded output and supports bulk import for large class rosters.",
-    tech: ["C++", "STL", "CMake"],
-    category: "Tools",
+      "Engineered a full-stack web marketplace using Django and SQLite, featuring user account creation, post listings, and transaction workflows. Built a custom authentication system with email verification to improve account security and user trust. Created dynamic views and forms to handle CRUD operations — create, edit, and delete posts — efficiently. Deployed as a standalone web application with clean URL routing and template-based rendering.",
+    tech: ["Python", "Django", "HTML/CSS", "SQLite"],
+    category: "Web",
     featured: false,
-    github: "https://github.com/victorgooge/student-score-tracker",
     status: "complete",
   },
   {

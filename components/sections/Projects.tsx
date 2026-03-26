@@ -7,7 +7,7 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/content/projects";
 import type { ProjectCategory } from "@/content/projects";
 
-const FILTERS = ["All", "Web", "Systems", "Tools"] as const;
+const FILTERS = ["All", "Web", "ML", "Systems", "Tools"] as const;
 type Filter = (typeof FILTERS)[number];
 
 export default function Projects() {
@@ -30,7 +30,7 @@ export default function Projects() {
         </FadeUp>
         <FadeUp delay={0.1}>
           <p className="text-[#6B7280] text-sm mb-10 max-w-lg">
-            A selection of personal and academic projects across systems programming and web development.
+            A selection of personal projects across full-stack web, mobile, and machine learning.
           </p>
         </FadeUp>
 

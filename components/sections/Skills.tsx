@@ -13,26 +13,25 @@ const SKILLS: SkillGroup[] = [
   {
     category: "Languages",
     accent: "#00FFB2",
-    skills: ["C", "C++", "Python", "TypeScript", "JavaScript", "SQL", "Bash"],
+    skills: ["JavaScript", "TypeScript", "Python", "Java", "C#", "SQL", "HTML/CSS", "Kotlin", "XML"],
   },
   {
-    category: "Systems & OS",
+    category: "Frameworks & Libraries",
     accent: "#7B61FF",
-    skills: ["Linux", "POSIX", "Process Scheduling", "Memory Management", "System Calls", "Make / CMake"],
+    skills: ["React", "React Native", "Node.js", "Express.js", "Django", "Tailwind CSS", "Bootstrap", "Mongoose", "pandas", "NumPy", "Scikit-Learn", "pySpark"],
   },
   {
-    category: "Web & Frontend",
+    category: "Web & APIs",
     accent: "#00FFB2",
-    skills: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "REST APIs", "HTML / CSS"],
+    skills: ["REST APIs", "JWT", "bcrypt", "MongoDB Atlas", "SQLite", "Next.js", "Framer Motion"],
   },
   {
     category: "Tools & Workflow",
     accent: "#7B61FF",
-    skills: ["Git", "GitHub", "VS Code", "GDB", "Valgrind", "Docker", "Vercel"],
+    skills: ["AWS", "Git", "GitHub", "Postman", "Figma", "Android Studio", "Expo", "VS Code", "Anaconda", "Unix", "Agile", "OCI"],
   },
 ];
 
-// One IntersectionObserver per group, children stagger via variants
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.04 } },
@@ -70,7 +69,6 @@ export default function Skills() {
                   </p>
                 </div>
 
-                {/* Single whileInView observer for the whole group */}
                 <motion.div
                   className="flex flex-wrap gap-2"
                   variants={reduce ? undefined : containerVariants}
