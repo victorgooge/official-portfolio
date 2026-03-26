@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Mail, ChevronDown, Download } from "lucide-react";
 import { GithubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
+import ParticleField    from "@/components/ui/ParticleField";
+import MagneticButton   from "@/components/ui/MagneticButton";
 
 const ROLES = [
   "CS Student",
@@ -31,12 +33,11 @@ const socials = [
 ];
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex]       = useState(0);
+  const [roleIndex, setRoleIndex]         = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const reduce = useReducedMotion();
 
   useEffect(() => {
-    // Reduced-motion: just show the full string, no animation
     if (reduce) {
       setDisplayedText(ROLES[roleIndex]);
       return;
@@ -46,13 +47,11 @@ export default function Hero() {
     let charIndex = 0;
     setDisplayedText("");
 
-    // Type out one character at a time
     const typeTimer = setInterval(() => {
       charIndex++;
       setDisplayedText(target.slice(0, charIndex));
       if (charIndex >= target.length) {
         clearInterval(typeTimer);
-        // Pause at the end, then advance to next role
         const pauseTimer = setTimeout(() => {
           setRoleIndex((i) => (i + 1) % ROLES.length);
         }, 1800);
@@ -73,6 +72,9 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center bg-grid overflow-hidden pt-16"
     >
+      {/* Particle constellation */}
+      <ParticleField />
+
       {/* Radial glow */}
       <div
         aria-hidden
@@ -99,7 +101,12 @@ export default function Hero() {
           className="font-display font-extrabold text-6xl sm:text-7xl md:text-8xl tracking-tight text-[#F0F0F0] leading-none mb-4"
         >
           Victor{" "}
-          <span className="text-accent text-glow">Googe</span>
+          <span
+            className="text-accent text-glow glitch"
+            data-text="Googe"
+          >
+            Googe
+          </span>
         </motion.h1>
 
         {/* Cycling role */}
@@ -132,13 +139,13 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.45 }}
           className="flex flex-col sm:flex-row gap-4 mb-12"
         >
-          <button
-            type="button"
+          <MagneticButton
             onClick={() => handleScroll("#projects")}
             className="px-6 py-3 rounded-lg bg-[#00FFB2] text-[#0A0A0F] font-display font-semibold text-sm hover:bg-[#00e6a0] transition-colors glow-accent"
           >
             View My Work
-          </button>
+          </MagneticButton>
+
           <a
             href="/resume.pdf"
             target="_blank"

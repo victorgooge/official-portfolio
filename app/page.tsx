@@ -6,12 +6,14 @@ import Skills       from "@/components/sections/Skills";
 import Projects     from "@/components/sections/Projects";
 import Experience   from "@/components/sections/Experience";
 import Contact      from "@/components/sections/Contact";
-import TerminalEgg  from "@/components/ui/TerminalEgg";
-import CustomCursor from "@/components/ui/CustomCursor";
+import TerminalEgg       from "@/components/ui/TerminalEgg";
+import CustomCursor      from "@/components/ui/CustomCursor";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 
 export default function Home() {
   return (
     <>
+      <ScrollProgressBar />
       <CustomCursor />
       <Navbar />
       <main>
