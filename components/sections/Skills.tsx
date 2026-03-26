@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import FadeUp from "@/components/animations/FadeUp";
+import FadeUp       from "@/components/animations/FadeUp";
+import TextScramble from "@/components/ui/TextScramble";
 
 interface SkillGroup {
   category: string;
@@ -52,7 +53,7 @@ export default function Skills() {
         </FadeUp>
         <FadeUp delay={0.05}>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#F0F0F0] mb-14">
-            What I work with
+            <TextScramble text="What I work with" />
           </h2>
         </FadeUp>
 

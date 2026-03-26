@@ -1,7 +1,12 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+import { useInView, useReducedMotion } from "framer-motion";
 import FadeUp        from "@/components/animations/FadeUp";
 import PhotoLightbox from "@/components/ui/PhotoLightbox";
+import TextScramble  from "@/components/ui/TextScramble";
+import CountUp       from "@/components/ui/CountUp";
+import CursorSpotlight from "@/components/ui/CursorSpotlight";
 import { MapPin, Briefcase, BookOpen, Zap } from "lucide-react";
 
 const TERMINAL_LINES = [
@@ -21,6 +26,71 @@ const currently = [
   { icon: Zap,       text: "CodePath E3 Scholar — TIP103"                     },
 ];
 
+const STATS = [
+  { value: 3,  suffix: "+", label: "Projects"     },
+  { value: 9,  suffix: "+", label: "Languages"    },
+  { value: 1,  suffix: "",  label: "Internship"   },
+];
+
+/** Terminal window that types lines in one-by-one on scroll */
+function AnimatedTerminal() {
+  const ref     = useRef<HTMLDivElement>(null);
+  const inView  = useInView(ref, { once: true, margin: "-60px" });
+  const reduce  = useReducedMotion();
+  const [revealed, setRevealed] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    if (reduce) { setRevealed(TERMINAL_LINES.length); return; }
+
+    let i = 0;
+    const step = () => {
+      i++;
+      setRevealed(i);
+      if (i < TERMINAL_LINES.length) setTimeout(step, 220);
+    };
+    const t = setTimeout(step, 150);
+    return () => clearTimeout(t);
+  }, [inView, reduce]);
+
+  return (
+    <div
+      ref={ref}
+      className="relative rounded-xl border border-white/[0.06] bg-[#111118] overflow-hidden font-mono text-sm"
+    >
+      <CursorSpotlight size={500} opacity={0.06} />
+      {/* Title bar */}
+      <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0A0A0F]">
+        <span className="w-3 h-3 rounded-full bg-red-500/70" />
+        <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
+        <span className="w-3 h-3 rounded-full bg-green-500/70" />
+        <span className="ml-3 text-xs text-[#6B7280]">victor@portfolio ~ </span>
+      </div>
+      {/* Lines */}
+      <div className="p-5 flex flex-col gap-2 min-h-[220px]">
+        {TERMINAL_LINES.slice(0, revealed).map(({ prompt, output }, i) => (
+          <div key={i} className="animate-fadeIn">
+            <p className="text-[#00FFB2]">{prompt}</p>
+            <p className="text-[#F0F0F0] pl-2">{output}</p>
+          </div>
+        ))}
+        {revealed < TERMINAL_LINES.length && (
+          <div className="flex items-center gap-1 mt-1">
+            <span className="text-[#00FFB2]">$</span>
+            <span className="w-2 h-4 bg-[#00FFB2] animate-pulse ml-1" />
+          </div>
+        )}
+        {revealed >= TERMINAL_LINES.length && (
+          <div className="flex items-center gap-1 mt-1">
+            <span className="text-[#00FFB2]">$</span>
+            <span className="w-2 h-4 bg-[#00FFB2] animate-pulse ml-1" />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function About() {
   return (
     <section id="about" className="py-28 px-6">
@@ -34,7 +104,7 @@ export default function About() {
           <div>
             <FadeUp delay={0.05}>
               <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#F0F0F0] mb-6">
-                The person behind the code
+                <TextScramble text="The person behind the code" />
               </h2>
             </FadeUp>
 
@@ -71,6 +141,20 @@ export default function About() {
               </p>
             </FadeUp>
 
+            {/* Stats row */}
+            <FadeUp delay={0.22}>
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                {STATS.map(({ value, suffix, label }) => (
+                  <div key={label} className="rounded-xl border border-white/[0.06] bg-[#111118] p-4 text-center">
+                    <p className="font-display font-bold text-2xl text-[#00FFB2]">
+                      <CountUp to={value} suffix={suffix} />
+                    </p>
+                    <p className="text-xs font-mono text-[#6B7280] mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </FadeUp>
+
             {/* Currently block */}
             <FadeUp delay={0.25}>
               <div className="rounded-xl border border-white/[0.06] bg-[#111118] p-5">
@@ -87,28 +171,9 @@ export default function About() {
             </FadeUp>
           </div>
 
-          {/* Right — terminal window */}
+          {/* Right — animated terminal */}
           <FadeUp delay={0.15} className="md:sticky md:top-24">
-            <div className="rounded-xl border border-white/[0.06] bg-[#111118] overflow-hidden font-mono text-sm">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0A0A0F]">
-                <span className="w-3 h-3 rounded-full bg-red-500/70" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                <span className="w-3 h-3 rounded-full bg-green-500/70" />
-                <span className="ml-3 text-xs text-[#6B7280]">victor@portfolio ~ </span>
-              </div>
-              <div className="p-5 flex flex-col gap-2">
-                {TERMINAL_LINES.map(({ prompt, output }, i) => (
-                  <div key={i}>
-                    <p className="text-[#00FFB2]">{prompt}</p>
-                    <p className="text-[#F0F0F0] pl-2">{output}</p>
-                  </div>
-                ))}
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="text-[#00FFB2]">$</span>
-                  <span className="w-2 h-4 bg-[#00FFB2] animate-pulse ml-1" />
-                </div>
-              </div>
-            </div>
+            <AnimatedTerminal />
           </FadeUp>
         </div>
       </div>

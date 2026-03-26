@@ -6,6 +6,7 @@ import { Mail, ChevronDown, Download } from "lucide-react";
 import { GithubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import ParticleField    from "@/components/ui/ParticleField";
 import MagneticButton   from "@/components/ui/MagneticButton";
+import CursorSpotlight  from "@/components/ui/CursorSpotlight";
 
 const ROLES = [
   "CS Student",
@@ -74,6 +75,9 @@ export default function Hero() {
     >
       {/* Particle constellation */}
       <ParticleField />
+
+      {/* Cursor spotlight */}
+      <CursorSpotlight size={800} opacity={0.05} />
 
       {/* Radial glow */}
       <div

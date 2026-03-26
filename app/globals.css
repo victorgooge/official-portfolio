@@ -151,6 +151,16 @@ body::after {
   97%            { transform: translate(0);            opacity: 0; }
 }
 
+/* ── Fade-in utility (terminal lines) ──────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease forwards;
+  will-change: opacity, transform;
+}
+
 /* ── Scanline overlay ───────────────────────────── */
 .scanlines {
   position: relative;

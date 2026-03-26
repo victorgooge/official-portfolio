@@ -1,4 +1,5 @@
-import FadeUp from "@/components/animations/FadeUp";
+import FadeUp       from "@/components/animations/FadeUp";
+import TextScramble from "@/components/ui/TextScramble";
 
 interface TimelineEntry {
   role: string;
@@ -68,7 +69,7 @@ export default function Experience() {
         </FadeUp>
         <FadeUp delay={0.05}>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#F0F0F0] mb-14">
-            Background
+            <TextScramble text="Background" />
           </h2>
         </FadeUp>
 

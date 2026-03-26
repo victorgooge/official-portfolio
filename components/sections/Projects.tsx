@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import FadeUp from "@/components/animations/FadeUp";
+import FadeUp       from "@/components/animations/FadeUp";
+import TextScramble from "@/components/ui/TextScramble";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/content/projects";
 import type { ProjectCategory } from "@/content/projects";
@@ -25,7 +26,7 @@ export default function Projects() {
         </FadeUp>
         <FadeUp delay={0.05}>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#F0F0F0] mb-3">
-            Things I&apos;ve built
+            <TextScramble text="Things I've built" />
           </h2>
         </FadeUp>
         <FadeUp delay={0.1}>
@@ -39,6 +40,7 @@ export default function Projects() {
           <div className="flex flex-wrap gap-2 mb-10">
             {FILTERS.map((f) => (
               <button
+                type="button"
                 key={f}
                 onClick={() => setActive(f)}
                 className={`text-xs font-mono px-4 py-1.5 rounded-full border transition-colors

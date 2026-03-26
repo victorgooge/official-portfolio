@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Mail, Send, CheckCircle, RotateCcw, AlertCircle } from "lucide-react";
+import TextScramble from "@/components/ui/TextScramble";
 import { GithubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import FadeUp from "@/components/animations/FadeUp";
 import CopyButton from "@/components/ui/CopyButton";
@@ -59,7 +60,7 @@ export default function Contact() {
         </FadeUp>
         <FadeUp delay={0.05}>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#F0F0F0] mb-3">
-            Let&apos;s talk
+            <TextScramble text="Let's talk" />
           </h2>
         </FadeUp>
         <FadeUp delay={0.1}>
