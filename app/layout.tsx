@@ -17,7 +17,7 @@ const dmMono = DM_Mono({
   weight: ["300", "400", "500"],
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://victorgooge.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://official-portfolio-hazel-alpha.vercel.app";
 
 export const metadata: Metadata = {
   title: "Victor Googe — CS Student & Developer",
