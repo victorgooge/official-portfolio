@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg:         #0A0A0F;
+  --color-surface:    #111118;
+  --color-surface-2:  #1A1A24;
+  --color-accent:     #00FFB2;
+  --color-accent-alt: #7B61FF;
+  --color-text:       #F0F0F0;
+  --color-muted:      #6B7280;
+
+  --font-display: var(--font-syne), 'Syne', sans-serif;
+  --font-mono:    var(--font-dm-mono), 'DM Mono', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Base ───────────────────────────────────────── */
+@media (pointer: fine) {
+  html { cursor: none; }
+  a, button { cursor: none; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #0A0A0F;
+  color: #F0F0F0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0A0A0F;
+  color: #F0F0F0;
+  font-family: var(--font-dm-mono), 'DM Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Selection ──────────────────────────────────── */
+::selection {
+  background-color: rgba(0, 255, 178, 0.18);
+  color: #00FFB2;
+}
+
+/* ── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: #0A0A0F; }
+::-webkit-scrollbar-thumb  { background: rgba(0,255,178,0.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,255,178,0.55); }
+
+/* ── Focus ──────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #00FFB2;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── Grid bg ────────────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Glow ───────────────────────────────────────── */
+.glow-accent        { box-shadow: 0 0 24px rgba(0,255,178,0.15); }
+.glow-accent-strong { box-shadow: 0 0 48px rgba(0,255,178,0.25); }
+.text-glow          { text-shadow: 0 0 40px rgba(0,255,178,0.45); }
+
+/* ── Underline draw on hover ────────────────────── */
+.underline-draw {
+  position: relative;
+  text-decoration: none;
+}
+.underline-draw::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #00FFB2;
+  transition: width 0.3s ease;
+}
+.underline-draw:hover::after { width: 100%; }
+
+/* ── Hero radial glow ───────────────────────────── */
+.hero-glow {
+  background: radial-gradient(circle, rgba(0,255,178,0.06) 0%, transparent 70%);
+}
+
+/* ── Timeline ───────────────────────────────────── */
+.timeline-line {
+  background: linear-gradient(to bottom, #00FFB2, #7B61FF, transparent);
 }
