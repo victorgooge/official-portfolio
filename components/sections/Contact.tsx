@@ -11,8 +11,8 @@ const EMAIL = "vgooge1@student.gsu.edu";
 const socials = [
   {
     label: "GitHub",
-    href: "https://github.com/vgooge",
-    desc: "vgooge",
+    href: "https://github.com/victorgooge",
+    desc: "victorgooge",
     renderIcon: () => <GithubIcon width={15} height={15} />,
   },
   {

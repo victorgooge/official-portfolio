@@ -25,7 +25,7 @@ export const projects: Project[] = [
     tech: ["C", "POSIX", "Make"],
     category: "Systems",
     featured: true,
-    github: "https://github.com/vgooge/process-scheduler",
+    github: "https://github.com/victorgooge/process-scheduler",
     status: "complete",
   },
   {
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     tech: ["C++", "STL", "CMake"],
     category: "Tools",
     featured: false,
-    github: "https://github.com/vgooge/student-score-tracker",
+    github: "https://github.com/victorgooge/student-score-tracker",
     status: "complete",
   },
   {
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     category: "Web",
     featured: false,
-    github: "https://github.com/vgooge/official-portfolio",
+    github: "https://github.com/victorgooge/official-portfolio",
     status: "in-progress",
   },
 ];

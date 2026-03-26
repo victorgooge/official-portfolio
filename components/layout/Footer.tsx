@@ -13,7 +13,7 @@ export default function Footer() {
 
         <div className="flex items-center gap-5">
           <a
-            href="https://github.com/vgooge"
+            href="https://github.com/victorgooge"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"

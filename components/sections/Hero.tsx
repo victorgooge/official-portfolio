@@ -15,7 +15,7 @@ const ROLES = [
 const socials = [
   {
     label: "GitHub",
-    href: "https://github.com/vgooge",
+    href: "https://github.com/victorgooge",
     renderIcon: () => <GithubIcon width={13} height={13} />,
   },
   {

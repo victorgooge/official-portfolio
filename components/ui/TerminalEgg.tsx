@@ -42,20 +42,20 @@ function processCommand(raw: string): OutputLine[] {
       return [
         { type: "output", text: "Process Scheduler Simulator" },
         { type: "output", text: "  → CPU scheduling algorithms in C (FCFS, SJF, RR, Priority)" },
-        { type: "output", text: "  → github.com/vgooge/process-scheduler" },
+        { type: "output", text: "  → github.com/victorgooge/process-scheduler" },
         { type: "output", text: "" },
         { type: "output", text: "Student Score Tracker" },
         { type: "output", text: "  → Grade computation + CSV export CLI tool in C++" },
-        { type: "output", text: "  → github.com/vgooge/student-score-tracker" },
+        { type: "output", text: "  → github.com/victorgooge/student-score-tracker" },
         { type: "output", text: "" },
         { type: "output", text: "This Portfolio" },
         { type: "output", text: "  → Next.js 16 + Tailwind v4 + Framer Motion" },
-        { type: "output", text: "  → github.com/vgooge/official-portfolio" },
+        { type: "output", text: "  → github.com/victorgooge/official-portfolio" },
       ];
     case "contact":
       return [
         { type: "output", text: `Email:    ${EMAIL}` },
-        { type: "output", text: "GitHub:   github.com/vgooge" },
+        { type: "output", text: "GitHub:   github.com/victorgooge" },
         { type: "output", text: "LinkedIn: linkedin.com/in/victorgooge" },
       ];
     case "hire":
